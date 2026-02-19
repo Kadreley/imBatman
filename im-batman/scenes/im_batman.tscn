@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://uykvpt4bsanf" path="res://assets/shelf door.png" id="3_f28us"]
 [ext_resource type="Texture2D" uid="uid://dtgk35tbcqinv" path="res://assets/books.png" id="4_ia0o4"]
 [ext_resource type="Texture2D" uid="uid://c8h3dmui0n2ng" path="res://assets/daTv.png" id="5_r218i"]
+[ext_resource type="Script" uid="uid://3e3s405ooeb3" path="res://scenes/books.gd" id="5_w5a36"]
 [ext_resource type="Texture2D" uid="uid://bvhelhnr6xkqu" path="res://assets/decor.png" id="6_d2fa1"]
 [ext_resource type="Texture2D" uid="uid://cmnn8vxmxxqro" path="res://assets/mirror.png" id="7_w5a36"]
 [ext_resource type="Script" uid="uid://ddw8ivd6ul3sq" path="res://scenes/mirror.gd" id="8_f28us"]
@@ -16,17 +17,14 @@
 [ext_resource type="Script" uid="uid://b6nn6pogutmfp" path="res://scenes/me.gd" id="11_ia0o4"]
 [ext_resource type="Script" uid="uid://u1lq8ay1kbdm" path="res://scenes/speeh_1.gd" id="14_r218i"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaler"]
-size = Vector2(276, 141)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5a36"]
+size = Vector2(223, 122)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia0o4"]
 size = Vector2(365, 863)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2j6k"]
-size = Vector2(147.375, 81)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5a36"]
-size = Vector2(77.5, 148)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaler"]
+size = Vector2(473, 265)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r218i"]
 size = Vector2(238, 647)
@@ -51,12 +49,13 @@ texture = ExtResource("3_f28us")
 [node name="Books" type="Sprite2D" parent="." unique_id=444772495]
 position = Vector2(960, 540)
 texture = ExtResource("4_ia0o4")
+script = ExtResource("5_w5a36")
 
 [node name="Area2D" type="Area2D" parent="Books" unique_id=1204518722]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Books/Area2D" unique_id=2011678012]
-position = Vector2(128, -60.5)
-shape = SubResource("RectangleShape2D_yaler")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Books/Area2D" unique_id=1142313745]
+position = Vector2(600.5, -336)
+shape = SubResource("RectangleShape2D_w5a36")
 
 [node name="Decor" type="Sprite2D" parent="." unique_id=1555773842]
 position = Vector2(960, 540)
@@ -85,13 +84,9 @@ script = ExtResource("10_d2fa1")
 
 [node name="Area2D" type="Area2D" parent="DaTv" unique_id=467837107]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DaTv/Area2D" unique_id=1657266051]
-position = Vector2(642.3125, -315.5)
-shape = SubResource("RectangleShape2D_e2j6k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DaTv/Area2D" unique_id=1570775032]
-position = Vector2(529, -348)
-shape = SubResource("RectangleShape2D_w5a36")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DaTv/Area2D" unique_id=1148305078]
+position = Vector2(-41, 44)
+shape = SubResource("RectangleShape2D_yaler")
 
 [node name="Me" type="Sprite2D" parent="." unique_id=820540552 node_paths=PackedStringArray("speechOne")]
 visible = false
@@ -125,6 +120,8 @@ speechTwo = NodePath("../Speech2")
 position = Vector2(-460, -307.5)
 shape = SubResource("RectangleShape2D_d2fa1")
 
+[connection signal="mouse_entered" from="Books/Area2D" to="Books" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Books/Area2D" to="Books" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="Mirror/Area2D" to="Mirror" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Mirror/Area2D" to="Mirror" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="DaTv/Area2D" to="DaTv" method="_on_area_2d_mouse_entered"]

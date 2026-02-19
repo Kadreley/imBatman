@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://blvkeqh78w2oy"]
+
+[ext_resource type="Texture2D" uid="uid://mdjfvul660th" path="res://assets/shelf.png" id="1_s102r"]
+[ext_resource type="Texture2D" uid="uid://dfr143x0d3tei" path="res://assets/book2.png" id="2_65jk1"]
+
+[node name="AbtMe" type="Node2D" unique_id=311809533]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1845460226]
+position = Vector2(960, 540)
+texture = ExtResource("1_s102r")
+
+[node name="Book2" type="Sprite2D" parent="." unique_id=970927809]
+position = Vector2(-2127, 2051)
+scale = Vector2(4, 4)
+texture = ExtResource("2_65jk1")
