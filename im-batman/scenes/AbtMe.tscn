@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://blvkeqh78w2oy"]
+[gd_scene load_steps=7 format=3 uid="uid://blvkeqh78w2oy"]
 
 [ext_resource type="Texture2D" uid="uid://mdjfvul660th" path="res://assets/shelf.png" id="1_s102r"]
 [ext_resource type="Texture2D" uid="uid://dfr143x0d3tei" path="res://assets/book2.png" id="2_65jk1"]
+[ext_resource type="Texture2D" uid="uid://8rci8hfusvt3" path="res://assets/ok.png" id="3_hoalm"]
+[ext_resource type="Script" uid="uid://bwi063fdlrd8q" path="res://scenes/ok.gd" id="4_bonhb"]
+[ext_resource type="Texture2D" uid="uid://cck5juucrw0qh" path="res://assets/page.png" id="5_mjivx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm5ob"]
+size = Vector2(537, 145)
 
 [node name="AbtMe" type="Node2D" unique_id=311809533]
 
@@ -13,3 +19,21 @@ texture = ExtResource("1_s102r")
 position = Vector2(-2127, 2051)
 scale = Vector2(4, 4)
 texture = ExtResource("2_65jk1")
+
+[node name="Ok" type="Sprite2D" parent="." unique_id=314509264]
+position = Vector2(946, 592)
+texture = ExtResource("3_hoalm")
+script = ExtResource("4_bonhb")
+
+[node name="Area2D" type="Area2D" parent="Ok" unique_id=764802251]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ok/Area2D" unique_id=1330647955]
+position = Vector2(-516.5, 109.5)
+shape = SubResource("RectangleShape2D_vm5ob")
+
+[node name="Page" type="Sprite2D" parent="." unique_id=532382536]
+position = Vector2(960, 540)
+texture = ExtResource("5_mjivx")
+
+[connection signal="mouse_entered" from="Ok/Area2D" to="Ok" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Ok/Area2D" to="Ok" method="_on_area_2d_mouse_exited"]

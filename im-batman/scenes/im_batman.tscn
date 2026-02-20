@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://uykvpt4bsanf" path="res://assets/shelf door.png" id="3_f28us"]
 [ext_resource type="Texture2D" uid="uid://dtgk35tbcqinv" path="res://assets/books.png" id="4_ia0o4"]
 [ext_resource type="Texture2D" uid="uid://c8h3dmui0n2ng" path="res://assets/daTv.png" id="5_r218i"]
-[ext_resource type="Script" uid="uid://3e3s405ooeb3" path="res://scenes/books.gd" id="5_w5a36"]
+[ext_resource type="Script" path="res://scenes/books.gd" id="5_w5a36"]
 [ext_resource type="Texture2D" uid="uid://bvhelhnr6xkqu" path="res://assets/decor.png" id="6_d2fa1"]
 [ext_resource type="Texture2D" uid="uid://cmnn8vxmxxqro" path="res://assets/mirror.png" id="7_w5a36"]
 [ext_resource type="Script" uid="uid://ddw8ivd6ul3sq" path="res://scenes/mirror.gd" id="8_f28us"]

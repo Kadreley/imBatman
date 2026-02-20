@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="dataTable" load_steps=2 format=3 uid="uid://d35yu8mbgw74w"]
+
+[ext_resource type="Script" uid="uid://com3ib6aniarn" path="res://scenes/dataTable.gd" id="1_i0ylc"]
+
+[resource]
+script = ExtResource("1_i0ylc")
+metadata/_custom_type_script = "uid://com3ib6aniarn"

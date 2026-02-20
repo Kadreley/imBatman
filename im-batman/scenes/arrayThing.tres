@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="theArray" load_steps=5 format=3 uid="uid://bhqwcvqr0bimg"]
+
+[ext_resource type="Script" uid="uid://com3ib6aniarn" path="res://scenes/dataTable.gd" id="1_7t36s"]
+[ext_resource type="Script" uid="uid://bykv7482olwf" path="res://scenes/array.gd" id="2_55bj3"]
+[ext_resource type="Texture2D" uid="uid://i3d2gt3fxsja" path="res://assets/resized.png" id="2_vncqe"]
+
+[sub_resource type="Resource" id="Resource_v1kko"]
+script = ExtResource("1_7t36s")
+image = ExtResource("2_vncqe")
+title = "BUHBUHBUHBubbles!"
+description = "I was the 2D UI artist of this project that we made for GlobalGameJam2025"
+role = "2D UI Artist"
+link = "https://zoeeechu.itch.io/buhbuhbuhbubbles"
+metadata/_custom_type_script = "uid://com3ib6aniarn"
+
+[resource]
+script = ExtResource("2_55bj3")
+array = Array[ExtResource("1_7t36s")]([SubResource("Resource_v1kko")])
+metadata/_custom_type_script = "uid://bykv7482olwf"
