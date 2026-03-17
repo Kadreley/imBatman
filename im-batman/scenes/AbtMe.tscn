@@ -1,15 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://blvkeqh78w2oy"]
+[gd_scene format=3 uid="uid://blvkeqh78w2oy"]
 
+[ext_resource type="Script" uid="uid://y76j63uwpwjg" path="res://scripts/scenes/aboutme.gd" id="1_bonhb"]
 [ext_resource type="Texture2D" uid="uid://mdjfvul660th" path="res://assets/shelf.png" id="1_s102r"]
 [ext_resource type="Texture2D" uid="uid://dfr143x0d3tei" path="res://assets/book2.png" id="2_65jk1"]
 [ext_resource type="Texture2D" uid="uid://8rci8hfusvt3" path="res://assets/ok.png" id="3_hoalm"]
-[ext_resource type="Script" uid="uid://bwi063fdlrd8q" path="res://scenes/ok.gd" id="4_bonhb"]
+[ext_resource type="Script" uid="uid://vj21r8resc8p" path="res://scripts/clickable.gd" id="4_hoalm"]
 [ext_resource type="Texture2D" uid="uid://cck5juucrw0qh" path="res://assets/page.png" id="5_mjivx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm5ob"]
 size = Vector2(537, 145)
 
 [node name="AbtMe" type="Node2D" unique_id=311809533]
+script = ExtResource("1_bonhb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1845460226]
 position = Vector2(960, 540)
@@ -20,14 +22,14 @@ position = Vector2(-2127, 2051)
 scale = Vector2(4, 4)
 texture = ExtResource("2_65jk1")
 
-[node name="Ok" type="Sprite2D" parent="." unique_id=314509264]
+[node name="Return" type="Sprite2D" parent="." unique_id=314509264]
 position = Vector2(946, 592)
 texture = ExtResource("3_hoalm")
-script = ExtResource("4_bonhb")
 
-[node name="Area2D" type="Area2D" parent="Ok" unique_id=764802251]
+[node name="Area2D" type="Area2D" parent="Return" unique_id=764802251]
+script = ExtResource("4_hoalm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ok/Area2D" unique_id=1330647955]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Return/Area2D" unique_id=1330647955]
 position = Vector2(-516.5, 109.5)
 shape = SubResource("RectangleShape2D_vm5ob")
 
@@ -35,5 +37,19 @@ shape = SubResource("RectangleShape2D_vm5ob")
 position = Vector2(960, 540)
 texture = ExtResource("5_mjivx")
 
-[connection signal="mouse_entered" from="Ok/Area2D" to="Ok" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Ok/Area2D" to="Ok" method="_on_area_2d_mouse_exited"]
+[node name="AboutMe" type="Control" parent="." unique_id=1880163250]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AboutMe" unique_id=1720732170]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 225.0
+offset_right = 1549.0
+offset_bottom = 878.0
+bbcode_enabled = true
+text = "[font_size=22][color=black]Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
+[connection signal="Click" from="Return/Area2D" to="." method="Return"]

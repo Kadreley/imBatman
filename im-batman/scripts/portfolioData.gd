@@ -1,3 +1,3 @@
 extends Resource
-class_name theArray
+class_name PortfolioData
 @export var array : Array[dataTable]

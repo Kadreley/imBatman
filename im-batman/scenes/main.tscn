@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://8wlho55xa12v"]
+
+[ext_resource type="Texture2D" uid="uid://duci8gil4v0s4" path="res://assets/background.png" id="1_jbj1t"]
+[ext_resource type="Script" uid="uid://dvadio3w0qrq4" path="res://scripts/scenes/main.gd" id="1_muem4"]
+[ext_resource type="PackedScene" uid="uid://carfduodajuuy" path="res://scenes/portfolio.tscn" id="2_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://bkjwq6opcjbye" path="res://assets/the shelf.png" id="2_muem4"]
+[ext_resource type="Texture2D" uid="uid://uykvpt4bsanf" path="res://assets/shelf door.png" id="3_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://blvkeqh78w2oy" path="res://scenes/AbtMe.tscn" id="3_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://dtgk35tbcqinv" path="res://assets/books.png" id="4_0ld40"]
+[ext_resource type="Texture2D" uid="uid://bvhelhnr6xkqu" path="res://assets/decor.png" id="6_yc10j"]
+[ext_resource type="Texture2D" uid="uid://cmnn8vxmxxqro" path="res://assets/mirror.png" id="7_jscy8"]
+[ext_resource type="Texture2D" uid="uid://bcamwylhcqglu" path="res://assets/tvThing.png" id="9_y6deb"]
+[ext_resource type="Texture2D" uid="uid://c8h3dmui0n2ng" path="res://assets/daTv.png" id="10_og1vs"]
+[ext_resource type="Script" uid="uid://vj21r8resc8p" path="res://scripts/clickable.gd" id="12_muem4"]
+[ext_resource type="Texture2D" uid="uid://cii10sj3l1jrp" path="res://assets/me.png" id="12_vxglm"]
+[ext_resource type="Texture2D" uid="uid://bj4ey0lnpsedq" path="res://assets/speech2.png" id="14_yq6so"]
+[ext_resource type="Texture2D" uid="uid://s388888ymyee" path="res://assets/Speeh1.png" id="15_fv21b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5a36"]
+size = Vector2(223, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia0o4"]
+size = Vector2(365, 863)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaler"]
+size = Vector2(473, 265)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r218i"]
+size = Vector2(238, 647)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2fa1"]
+size = Vector2(274, 151)
+
+[sub_resource type="Animation" id="Animation_muem4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Me:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Speeh1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Speech2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jbj1t"]
+resource_name = "me_appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Me:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Me:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.3882353, 0.68235296, 0.7411765, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Speeh1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_jkv2x"]
+resource_name = "showSpeech2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Speech2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_muem4"]
+_data = {
+&"RESET": SubResource("Animation_muem4"),
+&"meAppear": SubResource("Animation_jbj1t"),
+&"speech2": SubResource("Animation_jkv2x")
+}
+
+[node name="Main" type="Node2D" unique_id=1791084511 node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("1_muem4")
+animationPlayer = NodePath("AnimationPlayer")
+portfolioScene = ExtResource("2_dp3eg")
+aboutMeScene = ExtResource("3_jbj1t")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=483415624]
+position = Vector2(960, 540)
+texture = ExtResource("1_jbj1t")
+
+[node name="TheShelf" type="Sprite2D" parent="." unique_id=1030147945]
+position = Vector2(960, 540)
+texture = ExtResource("2_muem4")
+
+[node name="ShelfDoor" type="Sprite2D" parent="." unique_id=1387497067]
+position = Vector2(960, 540)
+texture = ExtResource("3_dp3eg")
+
+[node name="Books" type="Sprite2D" parent="." unique_id=444772495]
+position = Vector2(960, 540)
+texture = ExtResource("4_0ld40")
+
+[node name="Area2D" type="Area2D" parent="Books" unique_id=1204518722]
+script = ExtResource("12_muem4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Books/Area2D" unique_id=1142313745]
+position = Vector2(600.5, -336)
+shape = SubResource("RectangleShape2D_w5a36")
+
+[node name="Decor" type="Sprite2D" parent="." unique_id=1555773842]
+position = Vector2(960, 540)
+texture = ExtResource("6_yc10j")
+
+[node name="Mirror" type="Sprite2D" parent="." unique_id=1265070338]
+position = Vector2(960, 540)
+texture = ExtResource("7_jscy8")
+
+[node name="Area2D" type="Area2D" parent="Mirror" unique_id=474939598]
+script = ExtResource("12_muem4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror/Area2D" unique_id=733553758]
+position = Vector2(-696.5, -32.5)
+shape = SubResource("RectangleShape2D_ia0o4")
+
+[node name="TvThing" type="Sprite2D" parent="." unique_id=15891248]
+position = Vector2(960, 540)
+texture = ExtResource("9_y6deb")
+
+[node name="DaTv" type="Sprite2D" parent="." unique_id=237178056]
+position = Vector2(960, 540)
+texture = ExtResource("10_og1vs")
+
+[node name="Area2D" type="Area2D" parent="DaTv" unique_id=467837107]
+script = ExtResource("12_muem4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DaTv/Area2D" unique_id=1148305078]
+position = Vector2(-41, 44)
+shape = SubResource("RectangleShape2D_yaler")
+
+[node name="Me" type="Sprite2D" parent="." unique_id=820540552]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+texture = ExtResource("12_vxglm")
+
+[node name="Area2D" type="Area2D" parent="Me" unique_id=1377411271]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Me/Area2D" unique_id=200059301]
+z_index = -1
+position = Vector2(-716, 61.5)
+shape = SubResource("RectangleShape2D_r218i")
+
+[node name="Speech2" type="Sprite2D" parent="." unique_id=929883160]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("14_yq6so")
+
+[node name="Speeh1" type="Sprite2D" parent="." unique_id=555349458]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("15_fv21b")
+
+[node name="Area2D" type="Area2D" parent="Speeh1" unique_id=1033522871]
+script = ExtResource("12_muem4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Speeh1/Area2D" unique_id=1310714368]
+position = Vector2(-460, -307.5)
+shape = SubResource("RectangleShape2D_d2fa1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=598165136]
+libraries/ = SubResource("AnimationLibrary_muem4")
+
+[connection signal="Click" from="Books/Area2D" to="." method="SwitchToAboutMeScene"]
+[connection signal="Click" from="Mirror/Area2D" to="." method="ShowMe"]
+[connection signal="Click" from="DaTv/Area2D" to="." method="SwitchToPortfolioScene"]
+[connection signal="Click" from="Speeh1/Area2D" to="." method="ShowSpeech2"]

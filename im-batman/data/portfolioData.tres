@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="PortfolioData" format=3 uid="uid://bhqwcvqr0bimg"]
+
+[ext_resource type="Script" uid="uid://com3ib6aniarn" path="res://scripts/dataTable.gd" id="1_wqng8"]
+[ext_resource type="Texture2D" uid="uid://i3d2gt3fxsja" path="res://assets/resized.png" id="2_0wt1r"]
+[ext_resource type="Script" uid="uid://bykv7482olwf" path="res://scripts/portfolioData.gd" id="3_owk8q"]
+
+[sub_resource type="Resource" id="Resource_wqng8"]
+script = ExtResource("1_wqng8")
+image = ExtResource("2_0wt1r")
+title = "BUHBUHBUHBubbles!"
+description = "I was the 2D UI artist of this project that we made for GlobalGameJam2025"
+role = "2D UI Artist"
+link = "https://zoeeechu.itch.io/buhbuhbuhbubbles"
+metadata/_custom_type_script = "uid://com3ib6aniarn"
+
+[sub_resource type="Resource" id="Resource_0wt1r"]
+script = ExtResource("1_wqng8")
+title = "AHAHAHAHAH!"
+description = "I was the 2D UI artist of this project that we made for GlobalGameJam2025"
+role = "2D UI Artist"
+link = "https://zoeeechu.itch.io/buhbuhbuhbubbles"
+metadata/_custom_type_script = "uid://com3ib6aniarn"
+
+[resource]
+script = ExtResource("3_owk8q")
+array = Array[ExtResource("1_wqng8")]([SubResource("Resource_wqng8"), SubResource("Resource_0wt1r")])
+metadata/_custom_type_script = "uid://bykv7482olwf"

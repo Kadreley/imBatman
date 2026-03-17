@@ -1,44 +1,51 @@
-[gd_scene load_steps=9 format=3 uid="uid://carfduodajuuy"]
+[gd_scene format=3 uid="uid://carfduodajuuy"]
 
 [ext_resource type="Texture2D" uid="uid://cglgmo5766g5o" path="res://assets/TVbase.png" id="1_7bpsx"]
 [ext_resource type="Texture2D" uid="uid://bq8bupe0tkvi1" path="res://assets/TVbutton.png" id="2_n8j05"]
-[ext_resource type="Script" uid="uid://2aqwxysg63g8" path="res://scenes/t_vbutton.gd" id="3_n8j05"]
-[ext_resource type="Script" uid="uid://bc3olvrh7w121" path="res://scenes/control.gd" id="4_jbld5"]
-[ext_resource type="Resource" uid="uid://bhqwcvqr0bimg" path="res://scenes/arrayThing.tres" id="5_70wyl"]
-[ext_resource type="Texture2D" uid="uid://i3d2gt3fxsja" path="res://assets/resized.png" id="6_h5a3j"]
-[ext_resource type="FontFile" uid="uid://dxwwgt2e64vxu" path="res://font/Showpop.otf" id="7_2ew3w"]
+[ext_resource type="Script" uid="uid://2aqwxysg63g8" path="res://scripts/tvButtons.gd" id="3_n8j05"]
+[ext_resource type="Script" uid="uid://vj21r8resc8p" path="res://scripts/clickable.gd" id="4_70wyl"]
+[ext_resource type="Script" uid="uid://5773lqrvdpd" path="res://scripts/portfolioContainer.gd" id="5_h5a3j"]
+[ext_resource type="Texture2D" uid="uid://chgnb3y5owqmb" path="res://assets/A7RtZj.png" id="6_70wyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2teq"]
-size = Vector2(271, 181.5)
+size = Vector2(271, 203.75)
 
 [node name="Portfolio" type="Node2D" unique_id=188414368]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1301219578]
+[node name="Background" type="Sprite2D" parent="." unique_id=1301219578]
 position = Vector2(960, 540)
 texture = ExtResource("1_7bpsx")
 
-[node name="TVbutton" type="Sprite2D" parent="." unique_id=1422498287]
+[node name="TVbutton" type="Sprite2D" parent="." unique_id=1422498287 node_paths=PackedStringArray("portfolioContainer")]
 position = Vector2(960, 540)
 texture = ExtResource("2_n8j05")
 script = ExtResource("3_n8j05")
+portfolioContainer = NodePath("../PortfolioContainer")
 
-[node name="Area2D" type="Area2D" parent="TVbutton" unique_id=420538584]
+[node name="Return" type="Area2D" parent="TVbutton" unique_id=420538584]
+script = ExtResource("4_70wyl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TVbutton/Area2D" unique_id=1802518578]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TVbutton/Return" unique_id=1802518578]
 position = Vector2(799.5, 326.25)
 shape = SubResource("RectangleShape2D_w2teq")
 
-[node name="control" type="Node2D" parent="." unique_id=297932676 node_paths=PackedStringArray("displaySprite")]
-position = Vector2(960, 540)
-script = ExtResource("4_jbld5")
-controlDataTable = ExtResource("5_70wyl")
-displaySprite = NodePath("../Sprite2D2")
+[node name="PreviousItem" type="Area2D" parent="TVbutton" unique_id=2031314439]
+position = Vector2(0, -188.475)
+script = ExtResource("4_70wyl")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=174905854]
-position = Vector2(862.00006, 334.00006)
-scale = Vector2(0.43528643, 0.44027776)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TVbutton/PreviousItem" unique_id=297302470]
+position = Vector2(799.5, 223.475)
+shape = SubResource("RectangleShape2D_w2teq")
 
-[node name="Control" type="Control" parent="." unique_id=809645595]
+[node name="NextItem" type="Area2D" parent="TVbutton" unique_id=1444093902]
+position = Vector2(0, -188.475)
+script = ExtResource("4_70wyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TVbutton/NextItem" unique_id=1515357241]
+position = Vector2(799.5, -37.524994)
+shape = SubResource("RectangleShape2D_w2teq")
+
+[node name="PortfolioContainer" type="Control" parent="." unique_id=809645595 node_paths=PackedStringArray("image", "title", "description", "role", "link")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,46 +54,68 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("5_h5a3j")
+image = NodePath("VBoxContainer/TextureRect")
+title = NodePath("VBoxContainer/Title")
+description = NodePath("VBoxContainer/Description")
+role = NodePath("VBoxContainer/role")
+link = NodePath("VBoxContainer/Link")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1737972479]
+[node name="VBoxContainer" type="VBoxContainer" parent="PortfolioContainer" unique_id=1737972479]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
-offset_bottom = 250.0
+offset_left = -811.0
+offset_top = -408.0
+offset_right = 607.0
+offset_bottom = 408.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer" unique_id=690513696]
+[node name="TextureRect" type="TextureRect" parent="PortfolioContainer/VBoxContainer" unique_id=1554609926]
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = -150
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 0
-
-[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/MarginContainer" unique_id=1211189474]
-custom_minimum_size = Vector2(900, 500)
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("6_h5a3j")
+texture = ExtResource("6_70wyl")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="Control/VBoxContainer" unique_id=1792021277]
+[node name="Title" type="Label" parent="PortfolioContainer/VBoxContainer" unique_id=1863032183]
 layout_mode = 2
-theme_override_constants/margin_left = -80
-
-[node name="title" type="Label" parent="Control/VBoxContainer/MarginContainer2" unique_id=1356785824]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_2ew3w")
-theme_override_font_sizes/font_size = 45
-text = "BUHBUHBUHBubbles!"
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "This is some text"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="mouse_entered" from="TVbutton/Area2D" to="TVbutton" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="TVbutton/Area2D" to="TVbutton" method="_on_area_2d_mouse_exited"]
+[node name="Description" type="Label" parent="PortfolioContainer/VBoxContainer" unique_id=1428577406]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "This is some text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="role" type="Label" parent="PortfolioContainer/VBoxContainer" unique_id=1162699122]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "This is some text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Link" type="Label" parent="PortfolioContainer/VBoxContainer" unique_id=1634599575]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "This is some text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="Click" from="TVbutton/Return" to="TVbutton" method="Return"]
+[connection signal="Click" from="TVbutton/PreviousItem" to="TVbutton" method="PrevItem"]
+[connection signal="Click" from="TVbutton/NextItem" to="TVbutton" method="NextItem"]
