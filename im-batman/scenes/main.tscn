@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://uykvpt4bsanf" path="res://assets/shelf door.png" id="3_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://blvkeqh78w2oy" path="res://scenes/AbtMe.tscn" id="3_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://dtgk35tbcqinv" path="res://assets/books.png" id="4_0ld40"]
+[ext_resource type="PackedScene" uid="uid://bsyan42k03qr5" path="res://scenes/drawing.tscn" id="4_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://bvhelhnr6xkqu" path="res://assets/decor.png" id="6_yc10j"]
 [ext_resource type="Texture2D" uid="uid://cmnn8vxmxxqro" path="res://assets/mirror.png" id="7_jscy8"]
 [ext_resource type="Texture2D" uid="uid://bcamwylhcqglu" path="res://assets/tvThing.png" id="9_y6deb"]
@@ -18,6 +19,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5a36"]
 size = Vector2(223, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
+size = Vector2(125.75, 139)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia0o4"]
 size = Vector2(365, 863)
@@ -136,6 +140,7 @@ script = ExtResource("1_muem4")
 animationPlayer = NodePath("AnimationPlayer")
 portfolioScene = ExtResource("2_dp3eg")
 aboutMeScene = ExtResource("3_jbj1t")
+drawingScene = ExtResource("4_jbj1t")
 
 [node name="bg" type="Sprite2D" parent="." unique_id=483415624]
 position = Vector2(960, 540)
@@ -163,6 +168,13 @@ shape = SubResource("RectangleShape2D_w5a36")
 [node name="Decor" type="Sprite2D" parent="." unique_id=1555773842]
 position = Vector2(960, 540)
 texture = ExtResource("6_yc10j")
+
+[node name="Area2D" type="Area2D" parent="Decor" unique_id=2121673270]
+script = ExtResource("12_muem4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Area2D" unique_id=1271417111]
+position = Vector2(822.875, -134.5)
+shape = SubResource("RectangleShape2D_jkv2x")
 
 [node name="Mirror" type="Sprite2D" parent="." unique_id=1265070338]
 position = Vector2(960, 540)
@@ -223,6 +235,7 @@ shape = SubResource("RectangleShape2D_d2fa1")
 libraries/ = SubResource("AnimationLibrary_muem4")
 
 [connection signal="Click" from="Books/Area2D" to="." method="SwitchToAboutMeScene"]
+[connection signal="Click" from="Decor/Area2D" to="." method="SwitchToDrawingScene"]
 [connection signal="Click" from="Mirror/Area2D" to="." method="ShowMe"]
 [connection signal="Click" from="DaTv/Area2D" to="." method="SwitchToPortfolioScene"]
 [connection signal="Click" from="Speeh1/Area2D" to="." method="ShowSpeech2"]

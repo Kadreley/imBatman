@@ -1,8 +1,11 @@
 [gd_resource type="Resource" script_class="DrawingData" format=3 uid="uid://cu4lhw7715xkj"]
 
+[ext_resource type="Texture2D" uid="uid://0v8ol1pyix4l" path="res://assets/drawingPage.png" id="1_8mak1"]
 [ext_resource type="Script" uid="uid://desmm10c2r71n" path="res://scripts/drawingData.gd" id="1_vq4ih"]
+[ext_resource type="Texture2D" uid="uid://chgnb3y5owqmb" path="res://assets/A7RtZj.png" id="2_8iwm1"]
+[ext_resource type="Texture2D" uid="uid://duci8gil4v0s4" path="res://assets/background.png" id="3_s7m7p"]
 
 [resource]
 script = ExtResource("1_vq4ih")
-array = Array[Texture2D]([null])
+array = Array[Texture2D]([ExtResource("1_8mak1"), ExtResource("2_8iwm1"), ExtResource("3_s7m7p")])
 metadata/_custom_type_script = "uid://desmm10c2r71n"

@@ -4,15 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://0v8ol1pyix4l" path="res://assets/drawingPage.png" id="2_q6xef"]
 [ext_resource type="Texture2D" uid="uid://8rci8hfusvt3" path="res://assets/ok.png" id="4_e0gpi"]
 [ext_resource type="Script" uid="uid://vj21r8resc8p" path="res://scripts/clickable.gd" id="5_7fc8g"]
+[ext_resource type="Texture2D" uid="uid://duci8gil4v0s4" path="res://assets/background.png" id="5_a2hfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm5ob"]
 size = Vector2(235.75, 145)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6xef"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[node name="drawing portfolio" type="Node2D" unique_id=311809533]
+[node name="drawing portfolio" type="Node2D" unique_id=311809533 node_paths=PackedStringArray("vboxContainer")]
 script = ExtResource("1_q6xef")
+vboxContainer = NodePath("AboutMe/ScrollContainer/VBoxContainer")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1845460226]
 position = Vector2(960, 540)
@@ -36,20 +35,24 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 
-[node name="VScrollBar" type="VScrollBar" parent="AboutMe" unique_id=1125676531]
+[node name="ScrollContainer" type="ScrollContainer" parent="AboutMe" unique_id=587634877]
+custom_minimum_size = Vector2(640, 670)
 layout_mode = 0
-offset_left = 900.0
-offset_top = 209.0
-offset_right = 1550.0
-offset_bottom = 939.0
-theme_override_styles/scroll = SubResource("StyleBoxFlat_q6xef")
+offset_left = 914.0
+offset_top = 222.0
+offset_right = 1554.0
+offset_bottom = 892.0
+horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AboutMe/VScrollBar" unique_id=1004073711]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -157.5
-offset_right = 157.5
-offset_bottom = 250.0
-grow_horizontal = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="AboutMe/ScrollContainer" unique_id=1004073711]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="AboutMe/ScrollContainer/VBoxContainer" unique_id=1119966765]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+texture = ExtResource("5_a2hfn")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="Click" from="Return/Area2D" to="." method="Return"]

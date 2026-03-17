@@ -3,6 +3,8 @@ extends Node
 @export var animationPlayer : AnimationPlayer
 @export var portfolioScene : PackedScene
 @export var aboutMeScene : PackedScene
+@export var drawingScene : PackedScene
+
 var meShown : bool= false
 var speech2Shown : bool = false
 
@@ -12,6 +14,8 @@ func SwitchToPortfolioScene() -> void:
 func SwitchToAboutMeScene() -> void:
 	add_sibling(aboutMeScene.instantiate())
 
+func SwitchToDrawingScene() -> void:
+	add_sibling(drawingScene.instantiate())
 
 func ShowMe() -> void:
 	if(meShown): return
