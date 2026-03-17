@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DrawingData" format=3 uid="uid://cu4lhw7715xkj"]
+
+[ext_resource type="Script" uid="uid://desmm10c2r71n" path="res://scripts/drawingData.gd" id="1_vq4ih"]
+
+[resource]
+script = ExtResource("1_vq4ih")
+array = Array[Texture2D]([null])
+metadata/_custom_type_script = "uid://desmm10c2r71n"

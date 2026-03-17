@@ -42,6 +42,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="AboutMe" unique_id=1720732170]
 layout_mode = 0

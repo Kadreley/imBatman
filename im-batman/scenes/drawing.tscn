@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bsyan42k03qr5"]
+
+[ext_resource type="Script" uid="uid://belc1u0u72fbq" path="res://scripts/scenes/drawingPortfolio.gd" id="1_q6xef"]
+[ext_resource type="Texture2D" uid="uid://0v8ol1pyix4l" path="res://assets/drawingPage.png" id="2_q6xef"]
+[ext_resource type="Texture2D" uid="uid://8rci8hfusvt3" path="res://assets/ok.png" id="4_e0gpi"]
+[ext_resource type="Script" uid="uid://vj21r8resc8p" path="res://scripts/clickable.gd" id="5_7fc8g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm5ob"]
+size = Vector2(235.75, 145)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6xef"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="drawing portfolio" type="Node2D" unique_id=311809533]
+script = ExtResource("1_q6xef")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1845460226]
+position = Vector2(960, 540)
+texture = ExtResource("2_q6xef")
+
+[node name="Return" type="Sprite2D" parent="." unique_id=314509264]
+position = Vector2(1001, 714)
+texture = ExtResource("4_e0gpi")
+
+[node name="Area2D" type="Area2D" parent="Return" unique_id=764802251]
+script = ExtResource("5_7fc8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Return/Area2D" unique_id=1330647955]
+position = Vector2(-556, 91)
+shape = SubResource("RectangleShape2D_vm5ob")
+
+[node name="AboutMe" type="Control" parent="." unique_id=1880163250]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="AboutMe" unique_id=1125676531]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 209.0
+offset_right = 1550.0
+offset_bottom = 939.0
+theme_override_styles/scroll = SubResource("StyleBoxFlat_q6xef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AboutMe/VScrollBar" unique_id=1004073711]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.5
+offset_right = 157.5
+offset_bottom = 250.0
+grow_horizontal = 2
